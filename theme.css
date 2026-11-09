@@ -1,0 +1,60 @@
+/* Puzzle-style dark red UI skin. Visual only: no quiz logic changed. */
+:root{--paper:#08060a;--ink:#f5ecec;--muted:#9d8d91;--line:rgba(255,255,255,.12);--gold:#e11d2e;--gold2:#ff4458;--pixel:'Pixelify Sans','Press Start 2P',monospace;--red:#e11d2e;--r2:#ff4458;--wine:#5c0d17;--pn:#110a0e}
+body{color:var(--ink);background:radial-gradient(60rem 38rem at 85% -10%,rgba(225,29,46,.26),transparent),radial-gradient(40rem 30rem at -8% 70%,rgba(110,10,28,.35),transparent),#08060a;background-attachment:fixed}
+.topbar{background:rgba(8,6,10,.7)!important;border-bottom:1px solid var(--line)}
+.brand{color:#f5ecec;font-family:var(--pixel)}.brand-mark{background:var(--red);border-radius:3px}.dot,.section-title h2 span{color:var(--r2)}
+.top-meta,.version,.eyebrow,.art-note,.art-bottom,.section-index,.stage small,footer{color:var(--muted)}
+.top-meta i{background:var(--r2)}.eyebrow>span{background:var(--muted)}
+.nav a{color:var(--muted)}.nav a:hover{color:var(--r2)}
+.hero,.hero h1,h1,h2,h3{border-color:var(--line)}
+.hero h1{font-family:var(--pixel);letter-spacing:-2px;line-height:1.02}
+.hero h1 em{-webkit-text-stroke:2px var(--r2)}
+.intro,.challenge-copy,.features p,.sub{color:var(--muted)}
+.primary,#quizOverlay .primary{display:inline-block;text-decoration:none;border-radius:4px;color:#fff;font-family:var(--pixel);font-size:13px;text-transform:uppercase;background:linear-gradient(120deg,#ff3b4e,#a80d1c);box-shadow:0 10px 36px rgba(225,29,46,.4)}
+.primary:hover:not(:disabled){background:linear-gradient(120deg,#ff5668,#c4112a);box-shadow:0 14px 46px rgba(255,59,78,.55)}
+.primary.ghost{background:none;border:1px solid var(--r2);box-shadow:none;margin-left:8px}
+.pixel-window{background:var(--pn);border:2px solid #f5ecec;box-shadow:14px 14px 0 var(--wine),0 0 70px rgba(225,29,46,.2);color:#f5ecec}
+.pixel-window *{border-color:#f5ecec}
+.pixel-face{background-color:var(--red)}
+.pixel-face b,.pixel-face i{background-color:#08060a}
+.float{color:var(--r2)}
+.challenge-card,.escape-card{background:var(--pn);border:1px solid #f5ecec;box-shadow:12px 12px 0 var(--wine);color:#f5ecec}
+.escape-card{margin-top:30px;padding:20px 22px;box-shadow:12px 12px 0 var(--wine)}
+.challenge-top{color:var(--muted)}
+.stage{background:rgba(255,255,255,.04)!important;border-color:var(--line);color:#f5ecec}
+.stage:hover{border-color:var(--r2)!important}
+.stage:last-child{background:var(--red)!important;border-color:var(--red)}
+.stage:nth-child(n+4):not(:last-child)::after{color:var(--r2)}
+.stage:last-child::after{color:#fff}
+.syllabus-note,.stats,.stats>div{border-color:var(--line);color:#f5ecec}
+.syllabus-note small,.stats small{color:var(--muted)}.syllabus-note p{color:var(--muted)}
+.features>div{background:var(--pn);border-color:var(--line);color:#f5ecec}
+.features>div:hover{border-color:var(--r2)}.features b{color:var(--r2)}
+.board{background:#030203;border:1px solid var(--line)}.board small{color:var(--r2)}
+.chips span{border-color:var(--line);color:var(--r2)}
+.rank,.stats strong{color:#f5ecec}
+/* modals */
+.overlay{background:rgba(4,2,5,.82)}
+.profile-panel{background:var(--pn);color:#f5ecec;border:2px solid #f5ecec;box-shadow:12px 12px 0 var(--wine)}
+.profile-panel input,.profile-panel select{background:#0b0609;color:#f5ecec;border:1px solid var(--line)}
+.profile-panel input:focus,.profile-panel select:focus{border-color:var(--r2)}
+.profile-panel label,.profile-foot>span,.mono{color:var(--muted)}
+.close{color:#f5ecec}
+/* quiz */
+#quizOverlay{background:#09060a}
+#quizOverlay .quiz-panel{background:radial-gradient(50rem 34rem at 80% -5%,rgba(225,29,46,.2),transparent),radial-gradient(40rem 30rem at 0 100%,rgba(100,10,25,.3),transparent),#09060a;color:#f5ecec}
+#quizOverlay h2,.topic-tag{font-family:var(--pixel)}
+#quizOverlay .topic-tag{color:var(--r2)}
+#quizOverlay .option{background:rgba(255,255,255,.05);border-color:var(--line);border-radius:6px}
+#quizOverlay .option:hover:not(:disabled){border-color:var(--r2)}
+#quizOverlay .option.selected{background:linear-gradient(135deg,#ff3b4e,#a80d1c);color:#fff;border-color:transparent;box-shadow:0 0 22px rgba(225,29,46,.5)}
+#quizOverlay .progress span{background:linear-gradient(90deg,var(--red),var(--r2))}
+#quizOverlay .progress,.timebar,.pips span{background:rgba(255,255,255,.1)}
+#quizOverlay .eyebrow>span{background:var(--r2)}
+#quizOverlay .explanation{background:#150d12;border-left-color:var(--r2);color:#d9cdd0}
+#quizOverlay .result-icon{border-color:var(--r2);color:var(--r2)}#quizOverlay .result-xp strong{color:var(--r2)}
+.stage-card h2,.cr.title h2,.team-intro h1{font-family:var(--pixel)}
+.cr small,.cr.end h3,.ti-sub,.xppop{color:var(--r2)}
+.cr strong{text-shadow:0 0 28px rgba(225,29,46,.5)}
+.cbtn{background:linear-gradient(120deg,#ff3b4e,#a80d1c);color:#fff}
+.cat-meme-toast{background:#fff;color:#111;box-shadow:6px 6px 0 var(--red)}

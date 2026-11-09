@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mathking · Escape the maths room</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--bk:#08060a;--pn:#110a0e;--red:#e11d2e;--r2:#ff4458;--wine:#5c0d17;--ink:#f5ecec;--mut:#9d8d91;--ok:#31d27c;--line:rgba(255,255,255,.12);color-scheme:dark}
+*{box-sizing:border-box;margin:0;padding:0}
+body{min-height:100vh;color:var(--ink);font:400 16px/1.6 'Space Grotesk',system-ui,sans-serif;background:radial-gradient(60rem 38rem at 85% -10%,rgba(225,29,46,.26),transparent),radial-gradient(40rem 30rem at -8% 70%,rgba(110,10,28,.35),transparent),var(--bk);background-attachment:fixed;overflow-x:hidden}
+button,input{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--r2);outline-offset:3px}
+.px{font-family:'Pixelify Sans','Courier New',monospace;font-weight:600}
+.mo{font:400 .68rem 'Space Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--mut)}
+.wrap{width:min(1060px,92vw);margin:0 auto}
+nav{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 4vw;border-bottom:1px solid var(--line);background:rgba(8,6,10,.7);backdrop-filter:blur(10px);position:sticky;top:0;z-index:5}
+.logo{display:flex;align-items:center;gap:10px;font-size:1.35rem}
+.logo b{background:var(--red);color:#fff;font-size:.8rem;padding:6px 7px;border-radius:3px}
+nav .mid{display:flex;gap:26px}
+.round{border:1px solid var(--line);background:rgba(255,255,255,.05);border-radius:8px;padding:7px 16px;cursor:pointer;font:400 .78rem 'Space Mono',monospace}
+.round:hover{border-color:var(--r2)}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding:70px 0 80px}
+.eyebrow{display:flex;gap:12px;align-items:center;margin-bottom:22px}
+.eyebrow:before{content:"";width:26px;height:1px;background:var(--mut)}
+h1{font-size:clamp(3.4rem,8vw,6.2rem);line-height:.98}
+h1 .o{color:transparent;-webkit-text-stroke:2px var(--r2);display:block}
+h1 i{display:inline-block;width:.16em;height:.16em;background:var(--red);margin-left:.1em}
+.lead{max-width:30rem;color:var(--mut);margin:24px 0 30px}
+.cta{border:0;border-radius:4px;padding:15px 26px;font:600 .95rem 'Pixelify Sans','Courier New',monospace;letter-spacing:.04em;text-transform:uppercase;color:#fff;background:linear-gradient(120deg,#ff3b4e,#a80d1c);cursor:pointer;box-shadow:0 10px 36px rgba(225,29,46,.4);transition:transform .2s,box-shadow .2s}
+.cta:hover{transform:translateY(-2px);box-shadow:0 14px 46px rgba(255,59,78,.55)}
+.cta:disabled{opacity:.45;cursor:default;transform:none}
+.stage-art{position:relative;height:360px;display:grid;place-items:center}
+.stage-art>span{position:absolute;font:1.8rem 'Pixelify Sans',monospace;color:var(--r2);opacity:.8}
+.win{width:min(300px,80%);background:var(--pn);border:2px solid var(--ink);box-shadow:14px 14px 0 var(--wine),0 0 70px rgba(225,29,46,.2);transform:rotate(2.5deg)}
+.win .tb{display:flex;align-items:center;gap:6px;padding:8px 10px;border-bottom:2px solid var(--ink)}
+.win .tb i{width:9px;height:9px;border:1.5px solid var(--ink);border-radius:50%}
+.win .tb span{margin-left:auto}
+.win .bd{padding:30px 0 20px;text-align:center}
+.face{width:110px;height:110px;margin:0 auto 18px;background:var(--red);position:relative;border-radius:10px;box-shadow:0 0 40px rgba(225,29,46,.6)}
+.face:before,.face:after{content:"";position:absolute;top:36px;width:15px;height:21px;background:var(--bk)}
+.face:before{left:28px}.face:after{right:28px}
+.face u{position:absolute;left:34px;right:34px;bottom:24px;height:7px;background:var(--bk)}
+.sec{padding:10px 0 60px}
+.sec h2{font-size:clamp(2rem,4.4vw,3rem);margin:14px 0 26px}
+.run{border:1px solid var(--ink);background:var(--pn);padding:20px;box-shadow:12px 12px 0 var(--wine)}
+.run .hd{display:flex;justify-content:space-between;margin-bottom:16px}
+.cells{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.cell{border:1px solid var(--line);padding:12px 14px}
+.cell b{display:block;font-size:1.7rem}
+.cell span{font:700 .72rem 'Space Mono',monospace;color:var(--mut);text-transform:uppercase;display:block;margin-top:10px}
+.cell em{font:normal 700 .62rem 'Space Mono',monospace;color:var(--r2);text-transform:uppercase}
+.cell.f{background:var(--red);border-color:var(--red)}.cell.f span,.cell.f em{color:#fff}
+.run p{color:var(--mut);max-width:44rem;margin:18px 0 20px;font-size:.95rem}
+.feat{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;padding:10px 0 60px}
+.feat div{border:1px solid var(--line);background:var(--pn);padding:22px}
+.feat b{color:var(--r2);font:700 .85rem 'Space Mono',monospace}
+.feat h3{font-size:1.35rem;margin:14px 0 8px}
+.feat p{color:var(--mut);font-size:.92rem}
+.foot{background:#030203;border-top:1px solid var(--line);padding:50px 0 44px}
+.foot h3{font-size:clamp(2rem,5vw,3.2rem);margin:10px 0 18px}
+.foot p{color:var(--mut);font-size:.9rem}
+
+#game{position:fixed;inset:0;z-index:10;overflow-y:auto;display:none;flex-direction:column;padding:16px 4vw 20px;background:radial-gradient(50rem 34rem at 80% -5%,rgba(225,29,46,.2),transparent),radial-gradient(40rem 30rem at 0 100%,rgba(100,10,25,.3),transparent),#09060a}
+#game.on{display:flex}
+.fl{position:fixed;inset:0;pointer-events:none;overflow:hidden}
+.fl span{position:absolute;color:var(--red);opacity:.14;font:2.4rem 'Pixelify Sans',monospace;animation:drift linear infinite}
+@keyframes drift{from{transform:translateY(0) rotate(0)}to{transform:translateY(-110vh) rotate(240deg)}}
+.top{display:flex;justify-content:space-between;gap:10px;position:relative}
+.col{width:min(700px,100%);margin:0 auto;position:relative}
+.prog{display:flex;gap:6px;margin:18px auto 0}
+.prog i{flex:1;height:7px;border-radius:9px;background:rgba(255,255,255,.1)}
+.prog i.done{background:var(--r2);box-shadow:0 0 12px rgba(255,68,88,.6)}
+.prog i.now{background:linear-gradient(90deg,var(--red) 40%,rgba(255,255,255,.1) 40%)}
+.hud{display:flex;justify-content:space-between;align-items:center;margin-top:10px}
+.hud .hearts b{font-weight:400;color:var(--r2);font-size:1.05rem;margin-right:3px}
+.hud .hearts b.off{color:#3a2a2f}
+.hud .hearts b.brk{animation:shake .5s}
+.clock{font:700 1.05rem 'Space Mono',monospace;color:var(--ink)}
+.clock.low{color:var(--r2);text-shadow:0 0 14px var(--red)}
+.main{margin:auto;padding:26px 0}
+.tg{color:var(--r2);font-size:.95rem}
+h2.q{font-size:clamp(1.8rem,4.4vw,2.7rem);line-height:1.15;margin:6px 0 8px;font-weight:700}
+.story{color:var(--mut);font-size:.95rem;margin-bottom:22px}
+.board{border:1px solid var(--line);background:rgba(255,255,255,.035);border-radius:6px;padding:26px 18px;margin-bottom:14px;text-align:center}
+.eq p{font:700 1.8rem/1.5 'Space Grotesk',sans-serif}
+.eq .big{color:var(--r2);margin-top:6px}
+.seq,.chips{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.seq span,.chips span{min-width:64px;padding:12px 10px;border:1px solid var(--line);border-radius:6px;background:rgba(255,255,255,.05);font:700 1.9rem 'Space Grotesk',sans-serif}
+.seq .q,.sq .q{border:1px dashed var(--r2);color:var(--r2)}
+.chips span{width:78px;height:78px;display:grid;place-items:center;color:var(--r2);font-size:2.3rem}
+.sq{display:grid;grid-template-columns:repeat(3,72px);gap:8px;justify-content:center}
+.sq i{font:normal 700 1.8rem 'Space Grotesk',sans-serif;aspect-ratio:1;display:grid;place-items:center;border:1px solid var(--line);border-radius:6px;background:rgba(255,255,255,.05)}
+.inrow{display:flex;align-items:center;gap:14px;border:1px solid var(--line);background:#0e080b;border-radius:6px;padding:6px 14px;transition:box-shadow .3s,border-color .3s}
+.inrow:focus-within{border-color:var(--r2)}
+.inrow b{display:grid;place-items:center;width:26px;height:26px;border:1px solid var(--mut);border-radius:6px;font:700 .75rem 'Space Mono',monospace;color:var(--mut)}
+.inrow input{flex:1;background:none;border:0;outline:0;font-size:1.25rem;padding:10px 0}
+.inrow.good{border-color:var(--ok);box-shadow:0 0 26px rgba(49,210,124,.35);background:rgba(49,210,124,.08)}
+.inrow.bad{border-color:var(--red);box-shadow:0 0 26px rgba(225,29,46,.45);background:rgba(225,29,46,.1);animation:shake .4s}
+@keyframes shake{25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+.fb{margin-top:12px;padding:12px 16px;background:#150d12;border-left:3px solid var(--r2);font-size:.92rem}
+.fb:empty{display:none}.fb.ok{border-color:var(--ok)}
+.act{display:flex;justify-content:space-between;align-items:center;margin-top:16px;gap:12px}
+.hint{background:none;border:0;color:var(--mut);cursor:pointer;margin-top:14px;font:400 .72rem 'Space Mono',monospace;letter-spacing:.1em;text-transform:uppercase;text-decoration:underline;text-underline-offset:4px}
+.hint:disabled{opacity:.4;cursor:default}
+.xp{position:absolute;right:0;top:-6px;color:var(--r2);font:700 1.5rem 'Pixelify Sans',monospace;opacity:0;pointer-events:none}
+.xp.go{animation:xp 1.2s ease-out}
+@keyframes xp{from{opacity:1;transform:translateY(10px)}to{opacity:0;transform:translateY(-34px)}}
+.slots{display:flex;gap:10px;justify-content:center;padding-top:6px;position:relative}
+.slot{width:50px;height:60px;display:grid;place-items:center;border:1px solid var(--line);border-radius:6px;font:700 1.7rem 'Pixelify Sans',monospace;color:var(--mut)}
+.slot.got{color:#fff;background:linear-gradient(135deg,#ff3b4e,#a80d1c);border:0;animation:pop .5s;box-shadow:0 0 24px rgba(225,29,46,.55)}
+@keyframes pop{0%{transform:scale(.6)}60%{transform:scale(1.15)}}
+
+#intro,#end,.modal{position:fixed;inset:0;display:none;place-items:center;text-align:center;padding:24px}
+#intro{z-index:20;background:radial-gradient(circle,rgba(225,29,46,.55),#08060a 62%)}
+#intro.on,#end.on,.modal.on{display:grid}
+#intro h2{font-size:clamp(3.2rem,11vw,7.5rem);line-height:1;margin:14px 0;text-shadow:0 0 40px rgba(255,68,88,.9),0 0 90px rgba(225,29,46,.6);animation:zoom 2s ease-out}
+@keyframes zoom{from{transform:scale(.86);opacity:0}25%{opacity:1}to{transform:scale(1)}}
+#end{z-index:25;background:rgba(8,6,10,.96)}
+#end .ic{font-size:2.4rem}
+#end h2{font-size:clamp(2.6rem,8vw,5rem);line-height:1.05;margin:10px 0 0}
+#end p{color:var(--mut);margin:14px auto 8px;max-width:28rem}
+#end .xpl{color:var(--r2);margin-bottom:26px}
+#end .row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.modal{z-index:30;background:rgba(4,2,5,.82);backdrop-filter:blur(8px)}
+.modal .frm{background:var(--pn);border:2px solid var(--ink);box-shadow:12px 12px 0 var(--wine);padding:30px 26px;width:min(400px,100%);text-align:left}
+.modal h3{font-size:2.2rem;margin:10px 0 2px}
+.modal p{color:var(--mut);margin-bottom:18px;font-size:.92rem}
+.modal label{display:block;margin-bottom:14px}
+.modal input{width:100%;margin-top:6px;padding:11px 14px;border:1px solid var(--line);background:#0b0609;border-radius:4px;font-size:1rem;outline:0}
+.modal input:focus{border-color:var(--r2)}
+.modal .cta{width:100%;margin-top:6px}
+#toast{position:fixed;right:18px;bottom:18px;z-index:22;display:flex;gap:12px;align-items:center;max-width:320px;padding:12px 16px;background:#fff;color:#111;border:2px solid #111;box-shadow:6px 6px 0 var(--red);transform:translateY(170%);transition:transform .35s}
+#toast.on{transform:none}
+#toast b{font-size:2rem;font-weight:400}#toast small{color:var(--red);display:block;font:700 .62rem 'Space Mono',monospace;letter-spacing:.12em;text-transform:uppercase}#toast span{font-size:.88rem;line-height:1.3;font-weight:500;display:block}
+#cred{position:fixed;inset:0;z-index:40;background:#000;display:none;overflow:hidden;text-align:center}
+#cred.on{display:block}
+#cred .round{position:absolute;right:20px;top:20px;z-index:2}
+.roll{position:absolute;left:0;right:0;top:100%;animation:roll 28s linear forwards;padding:0 6vw}
+@keyframes roll{to{transform:translateY(calc(-100% - 100vh))}}
+.roll small{display:block;font:400 .7rem 'Space Mono',monospace;letter-spacing:.3em;text-transform:uppercase;color:var(--r2);margin:110px 0 14px}
+.roll .t{font:700 clamp(3.4rem,10vw,7rem)/.95 'Pixelify Sans',monospace;text-shadow:0 0 50px rgba(225,29,46,.7)}
+.roll .n{font:600 clamp(1.8rem,5vw,3rem) 'Pixelify Sans',monospace;text-shadow:0 0 30px rgba(225,29,46,.45)}
+#fin{position:absolute;inset:0;display:none;place-items:center;background:#000}
+#fin.on{display:grid}
+#fin h2{font-size:clamp(3rem,9vw,5.5rem);color:var(--r2);margin-bottom:22px;text-shadow:0 0 40px rgba(225,29,46,.6)}
+@media(max-width:820px){.hero{grid-template-columns:1fr;padding-top:34px}.stage-art{height:300px}nav .mid{display:none}.cells{grid-template-columns:repeat(2,1fr)}.feat{grid-template-columns:1fr}.eq p{font-size:1.4rem}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.roll{top:20%}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="logo px"><b>ME</b>mathescape</div>
+  <div class="mid mo"><span>● Math escape / 5 stages</span><span>Challenge</span><span>How it works</span></div>
+  <span style="display:flex;gap:10px;align-items:center"><a class="round" href="index.html" style="text-decoration:none">← Mathking Quiz</a><button class="round" id="snd" aria-label="Toggle sound">Sound on</button></span>
+</nav>
+
+<div class="wrap">
+  <section class="hero">
+    <div>
+      <div class="eyebrow mo">The Maths Association Day puzzle</div>
+      <h1 class="px">One room.<span class="o">Five locks.<i></i></span></h1>
+      <p class="lead">From classroom basics to brain-bending puzzles. Crack every lock, collect the digits and open the vault before time runs out.</p>
+      <button class="cta" id="start">Enter the room ↗</button>
+    </div>
+    <div class="stage-art" aria-hidden="true">
+      <span style="left:6%;top:18%">+</span><span style="right:4%;top:30%">÷</span><span style="left:30%;bottom:6%">?</span>
+      <div class="win"><div class="tb"><i></i><i></i><i></i><span class="mo">mathescape.exe</span></div><div class="bd"><div class="face"><u></u></div><div class="mo">Ready player_01</div></div></div>
+    </div>
+  </section>
+
+  <section class="sec" id="challenge">
+    <div class="eyebrow mo">The main event</div>
+    <h2 class="px">Your challenge</h2>
+    <div class="run">
+      <div class="hd mo"><span>The escape run</span><span>5 stages · one journey</span></div>
+      <div class="cells">
+        <div class="cell"><b class="px">01</b><span>Fruit market</span><em>Easy</em></div>
+        <div class="cell"><b class="px">02</b><span>Number ladder</span><em>Easy</em></div>
+        <div class="cell"><b class="px">03</b><span>Magic square</span><em>Medium</em></div>
+        <div class="cell"><b class="px">04</b><span>Make 24</span><em>Medium</em></div>
+        <div class="cell f"><b class="px">05</b><span>The vault</span><em>Final lock</em></div>
+      </div>
+      <p>Every stage hides one digit of the vault code. You have 5 hearts and 12 minutes, and the Vault Cat is watching. Stages 1 and 2 ease you in. From Stage 3 the puzzles get a little tougher. The room opens full screen.</p>
+      <button class="cta" id="start2">Start 5-stage escape ↗</button>
+    </div>
+  </section>
+
+  <section class="feat" id="how">
+    <div><b>01</b><h3 class="px">Full-screen focus</h3><p>The room takes over your whole screen. No distractions, just you and the puzzle.</p></div>
+    <div><b>02</b><h3 class="px">Gets tougher at Stage 3</h3><p>Warm up gently, then face medium puzzles against a ticking clock.</p></div>
+    <div><b>03</b><h3 class="px">Hints cost time</h3><p>Stuck? Take a hint, but it costs 20 seconds from the clock.</p></div>
+  </section>
+</div>
+<div class="foot"><div class="wrap">
+  <div class="mo">Maths Association Day</div>
+  <h3 class="px">Mathescape 2026</h3>
+  <p>Developed &amp; planned by Dr. Anirudhan × F Vimal Kumar · Funded &amp; presented by TEAM 7</p>
+</div></div>
+
+<div class="modal" id="who"><div class="frm" id="wf">
+  <div class="mo">Player registration</div>
+  <h3 class="px">Who’s playing?</h3><p>Enter your details before you step into the room.</p>
+  <label class="mo">Your name<input id="pn" maxlength="24" autocomplete="off"></label>
+  <label class="mo">Class or year<input id="pc" maxlength="16" autocomplete="off"></label>
+  <button class="cta" type="button" id="wgo">Continue ↗</button>
+</div></div>
+
+<div id="game" role="dialog" aria-label="Maths escape room">
+  <div class="fl" id="fl" aria-hidden="true"></div>
+  <div class="top"><button class="round" id="exit">Leave room</button><button class="round" id="snd2">Sound on</button></div>
+  <div class="col">
+    <div class="prog" id="prog"></div>
+    <div class="hud"><span class="mo" id="stl"></span><span class="hearts" id="hearts" aria-label="Hearts left"></span><span class="clock" id="clock">12:00</span></div>
+  </div>
+  <main class="main col">
+    <div class="tg px" id="tag"></div>
+    <h2 class="q" id="q"></h2>
+    <p class="story" id="story"></p>
+    <div class="board" id="puz"></div>
+    <div class="inrow" id="ir"><b>›</b><input id="in" autocomplete="off" aria-label="Your answer"></div>
+    <div class="fb" id="fb" role="status"></div>
+    <div class="act"><span class="mo" id="st">Type your answer</span><span style="position:relative"><span class="xp" id="xp">+20 XP</span><button class="cta" id="go">Submit answer ↗</button></span></div>
+    <button class="hint" id="hint">Need a hint? Costs 20 seconds</button>
+  </main>
+  <div class="slots" id="slots" aria-label="Code digits found"></div>
+</div>
+
+<div id="intro"><div><div class="mo" id="iS" style="color:var(--r2)"></div><h2 class="px" id="iN"></h2><div class="mo" id="iT"></div></div></div>
+<div id="end"><div><div class="ic" id="ei"></div><h2 class="px" id="eh"></h2><p id="et"></p><div class="mo xpl" id="ex"></div><div class="row"><button class="cta" id="again">Play again ↗</button><button class="cta" id="vc" style="background:none;border:1px solid var(--r2);box-shadow:none">View credits ↗</button></div></div></div>
+<div id="toast" role="status"><b>🐈‍⬛</b><div><small>Vault Cat</small><span id="ct"></span></div></div>
+
+<div id="cred">
+  <button class="round" id="skip">Skip ×</button>
+  <div class="roll" id="roll">
+    <small>A Mathescape production</small>
+    <div class="t">THE<br>MATH<br>ESCAPE</div>
+    <small>Developed &amp; planned by</small>
+    <div class="n">Dr. Anirudhan × F Vimal Kumar</div>
+    <small>Supported by</small>
+    <div class="n">Ariharan J</div>
+    <small>Funded &amp; presented by</small>
+    <div class="n">TEAM 7</div>
+    <small>Event</small>
+    <div class="n">Maths Association Day</div>
+    <small>Starring</small>
+    <div class="n" id="star"></div>
+    <small>No numbers were harmed</small>
+    <div style="height:30vh"></div>
+  </div>
+  <div id="fin"><div><h2 class="px">The end</h2><button class="cta" id="home">Return to home ↗</button></div></div>
+</div>
+
+<script>
+const CODE=[7,1,9,4],TIME=720,HEARTS=5;
+const $=id=>document.getElementById(id);
+const pad=n=>String(n).padStart(2,'0');
+function ok24(v){
+  const s=v.replace(/[×xX✕]/g,'*').replace(/[÷:]/g,'/').replace(/[−–—]/g,'-').replace(/[（［]/g,'(').replace(/[）］]/g,')').replace(/\s/g,'');
+  if(!/^[\d+\-*/()]+$/.test(s))return false;
+  const n=(s.match(/\d+/g)||[]).map(Number).sort((a,b)=>a-b);
+  if(n.join()!=='4,4,10,10')return false;
+  try{return Math.abs(Function('"use strict";return ('+s+')')()-24)<1e-6}catch(e){return false}
+}
+const S=[
+ {n:'Fruit market',t:'Easy',q:'Find the value of 🍎 − 🍓',story:'The first lock belongs to a fruit seller who only speaks in equations. Every fruit hides one number.',
+  html:'<div class="eq"><p>🍎 + 🍎 + 🍎 = 24</p><p>🍎 + 🍌 + 🍌 = 20</p><p>🍌 + 🍓 + 🍓 = 12</p><p class="big">🍎 − 🍓 = ?</p></div>',
+  hint:'The first line says three apples make 24, so start there.',ok:v=>+v===5},
+ {n:'Number ladder',t:'Easy',q:'What number comes next?',story:'The second door has a ladder of numbers. Find the rule, then climb one rung higher.',
+  html:'<div class="seq"><span>2</span><span>6</span><span>12</span><span>20</span><span>30</span><span class="q">?</span></div>',
+  hint:'Look at the gaps between neighbours: 4, 6, 8, 10 and so on.',ok:v=>+v===42},
+ {n:'Magic square',t:'Medium',q:'Find the sum of the missing numbers',story:'Every row, column and diagonal adds up to 15. Find the three missing numbers and enter their sum.',
+  html:'<div class="sq"><i>2</i><i>7</i><i>6</i><i>9</i><i>5</i><i class="q">?</i><i class="q">?</i><i class="q">?</i><i>8</i></div>',
+  hint:'Row two already has 9 and 5, so its gap is 15 − 9 − 5. Use the first column for another gap.',ok:v=>+v===8},
+ {n:'Make 24',t:'Medium',q:'Make 24 using every number once',story:'Use + − × ÷ and brackets. Type your answer as an expression, for example (3+4)*5-11. You must use all four numbers.',
+  html:'<div class="chips"><span>4</span><span>4</span><span>10</span><span>10</span></div>',
+  hint:'Start big: 10 × 10 = 100. Now use the two 4s to bring 100 down to 24.',ok:ok24},
+ {n:'The vault',t:'Final lock',q:'Enter the vault code',story:'Every digit is in your hands. Enter the four digits in the order you found them.',
+  html:'<div class="eq"><p>Four locks opened.</p><p class="big">One vault left.</p></div>',
+  hint:'Look at the slots at the bottom of the screen, from left to right.',ok:v=>v.replace(/\D/g,'')===CODE.join('')}
+];
+let i=0,time=TIME,hearts=HEARTS,xp=0,timer=null,hinted=false,found=[],mute=false,ac,busy=false,over=false,player='',padT;
+
+/* sound */
+function tone(f,d=.15,t='sine',at=0,v=.12){if(mute)return;try{ac=ac||new(window.AudioContext||window.webkitAudioContext)();const o=ac.createOscillator(),g=ac.createGain(),n=ac.currentTime+at;o.type=t;o.frequency.value=f;g.gain.setValueAtTime(v,n);g.gain.exponentialRampToValueAtTime(.001,n+d);o.connect(g);g.connect(ac.destination);o.start(n);o.stop(n+d)}catch(e){}}
+const sfx={ok:()=>{tone(660);tone(880,.2,'sine',.12)},bad:()=>{tone(200,.18,'square',0,.06);tone(120,.3,'sawtooth',.12,.1)},hit:()=>{tone(70,.9,'sine',0,.3);tone(140,.6,'triangle',0,.15)},win:()=>[523,659,784,1047].forEach((f,k)=>tone(f,.3,'triangle',k*.13)),lose:()=>{tone(300,.3);tone(200,.45,'sine',.25)}};
+const CH=[[220,261.6,329.6],[174.6,220,261.6],[261.6,329.6,392],[196,246.9,293.7]];
+function music(on){clearInterval(padT);if(!on)return;let k=0;const p=()=>CH[k++%4].forEach(f=>tone(f,3.4,'triangle',0,.05));p();padT=setInterval(p,3000)}
+$('snd').onclick=$('snd2').onclick=()=>{mute=!mute;$('snd').textContent=$('snd2').textContent=mute?'Sound off':'Sound on'};
+
+/* mascot */
+const BAD=['That answer has been forwarded to the Department of Nope.','Not quite. The cat blinked slowly at you.','The cat expected more. It always does.','Maths called. It wants its dignity back.'];
+const GOOD=['Fine. The cat is mildly impressed.','Correct. Do not let it go to your head.','The lock clicks open. Suspicious.'];
+function cat(a){$('ct').textContent=a[Math.floor(Math.random()*a.length)];$('toast').classList.add('on');clearTimeout(cat.t);cat.t=setTimeout(()=>$('toast').classList.remove('on'),3600)}
+
+/* floating symbols */
+$('fl').innerHTML=Array.from({length:20},()=>'<span style="left:'+Math.random()*100+'%;top:'+(100+Math.random()*30)+'%;animation-duration:'+(22+Math.random()*28)+'s;animation-delay:-'+Math.random()*40+'s;font-size:'+(1.6+Math.random()*2.4)+'rem">'+'∑π∞√÷×+−∫≈%θ∆'[Math.floor(Math.random()*13)]+'</span>').join('');
+
+/* game */
+const fmt=s=>pad(Math.floor(s/60))+':'+pad(s%60);
+function say(t,c){const m=$('fb');m.textContent=t;m.className='fb '+(c||'')}
+function drawSlots(){$('slots').innerHTML=CODE.map((d,k)=>k<found.length?'<div class="slot got">'+d+'</div>':'<div class="slot">·</div>').join('')}
+function drawProg(){$('prog').innerHTML=S.map((_,k)=>'<i class="'+(k<i?'done':k===i?'now':'')+'"></i>').join('')}
+function drawHearts(brk){$('hearts').innerHTML=Array.from({length:HEARTS},(_,k)=>'<b class="'+(k>=hearts?'off':'')+(brk&&k===hearts?' brk':'')+'">♥</b>').join('')}
+function render(){
+  const s=S[i];hinted=false;
+  $('stl').textContent='Stage '+pad(i+1)+' / '+pad(S.length)+' · '+xp+' XP';
+  $('tag').textContent=s.n;$('q').textContent=s.q;$('story').textContent=s.story;$('puz').innerHTML=s.html;
+  $('in').value='';$('in').placeholder=i===3?'Type your expression':i===4?'Type the 4-digit code':'Type your answer';
+  $('ir').className='inrow';$('hint').disabled=false;$('go').disabled=false;$('st').textContent='Type your answer';say('');drawProg();drawSlots();drawHearts();
+}
+function intro(k){
+  busy=true;$('iS').textContent='Stage '+pad(k+1);$('iN').textContent=S[k].n;$('iT').textContent='Lock '+(k+1)+' of '+S.length+' · '+S[k].t;
+  const e=$('intro');e.classList.remove('on');void e.offsetWidth;e.classList.add('on');sfx.hit();
+  setTimeout(()=>{e.classList.remove('on');busy=false;$('in').focus()},2100);
+}
+function tick(){
+  if(busy)return;time--;$('clock').textContent=fmt(Math.max(time,0));$('clock').classList.toggle('low',time<=60);
+  if(time<=0)finish(false,'time');
+}
+function begin(){
+  i=0;time=TIME;hearts=HEARTS;xp=0;found=[];over=false;$('end').classList.remove('on');$('cred').classList.remove('on');music(false);
+  $('clock').textContent=fmt(time);$('clock').classList.remove('low');
+  $('game').classList.add('on');document.body.style.overflow='hidden';
+  clearInterval(timer);timer=setInterval(tick,1000);render();intro(0);
+}
+function finish(win,why){
+  clearInterval(timer);over=true;
+  $('ei').textContent=win?'🏆':'💔';
+  $('eh').textContent=win?'You escaped!':'The cat won.';
+  $('et').textContent=win?'Well played, '+player+'. The vault swings open with '+fmt(Math.max(time,0))+' left on the clock.':(why==='time'?'Time ran out':'You ran out of hearts')+' with '+found.length+' of 4 locks open, '+player+'. Try again.';
+  $('ex').textContent=xp+' XP earned';$('again').textContent=win?'Play again ↗':'Try again ↗';
+  $('end').classList.add('on');win?sfx.win():sfx.lose();
+}
+function submit(){
+  if(over||busy||time<=0)return;
+  const v=$('in').value.trim();if(!v)return;
+  const ir=$('ir');ir.className='inrow';void ir.offsetWidth;
+  if(S[i].ok(v)){
+    sfx.ok();cat(GOOD);ir.classList.add('good');xp+=20;$('go').disabled=true;
+    const x=$('xp');x.classList.remove('go');void x.offsetWidth;x.classList.add('go');$('st').textContent=xp+' XP earned';
+    if(i===S.length-1){found=CODE.slice();drawSlots();say('Code accepted. The vault is open.','ok');over=true;setTimeout(()=>finish(true),1100);return}
+    found.push(CODE[i]);drawSlots();say('Correct. Digit '+(i+1)+' is '+CODE[i]+'.','ok');
+    busy=true;setTimeout(()=>{i++;render();intro(i)},1600);
+  }else{
+    sfx.bad();cat(BAD);ir.classList.add('bad');hearts--;drawHearts(true);
+    say('Not quite. Check your working and try again. You lost a heart.');
+    if(hearts<=0){over=true;setTimeout(()=>finish(false,'hearts'),1000)}
+  }
+}
+const openWho=()=>{$('who').classList.add('on');$('pn').focus()};
+$('start').onclick=$('start2').onclick=openWho;
+function goFull(){try{const d=document.documentElement,r=(d.requestFullscreen||d.webkitRequestFullscreen||(()=>0)).call(d);if(r&&r.catch)r.catch(()=>{})}catch(x){}}
+function enter(){
+  const n=$('pn').value.trim();
+  if(!n){$('pn').style.borderColor='var(--red)';$('pn').focus();return}
+  player=n;const c=$('pc').value.trim();if(c)player+=' ('+c+')';
+  $('who').classList.remove('on');goFull();
+  try{begin()}catch(err){console.error(err);$('game').classList.add('on');document.body.style.overflow='hidden'}
+}
+$('wgo').onclick=enter;
+['pn','pc'].forEach(id=>$(id).addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();enter()}}));
+document.addEventListener('keydown',e=>{if(e.key==='Escape')$('who').classList.remove('on')});
+$('again').onclick=begin;$('go').onclick=submit;
+$('in').addEventListener('keydown',e=>{if(e.key==='Enter')submit()});
+$('hint').onclick=()=>{if(hinted||busy||over)return;hinted=true;time=Math.max(time-20,1);$('clock').textContent=fmt(time);say('Hint: '+S[i].hint);$('hint').disabled=true};
+$('exit').onclick=()=>{clearInterval(timer);music(false);try{if(document.fullscreenElement)document.exitFullscreen().catch(()=>{})}catch(x){}$('end').classList.remove('on');$('intro').classList.remove('on');$('game').classList.remove('on');document.body.style.overflow=''};
+
+/* credits */
+function credits(){
+  $('end').classList.remove('on');$('fin').classList.remove('on');$('star').textContent=(player?player+' and ':'')+'every student who dared to play';
+  const r=$('roll');r.style.animation='none';void r.offsetWidth;r.style.animation='';
+  $('cred').classList.add('on');music(true);
+}
+function endCredits(){music(false);$('fin').classList.add('on')}
+$('vc').onclick=credits;$('skip').onclick=endCredits;$('roll').addEventListener('animationend',endCredits);
+$('home').onclick=()=>{$('cred').classList.remove('on');$('fin').classList.remove('on');$('exit').click()};
+</script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+:root{--gold:#b8892b;--gold2:#e6c260}
+.topbar{position:sticky;top:0;z-index:5;background:#f7f7f4e8;backdrop-filter:blur(12px)}
+.nav{display:flex;gap:26px;font:9px var(--mono);letter-spacing:1px}.nav a{color:#555;text-decoration:none}.nav a:hover{color:var(--gold)}
+.hero h1 em{-webkit-text-stroke:1.5px var(--gold)}.hero-art .pixel-window{box-shadow:10px 10px var(--gold)}
+.primary{background:linear-gradient(135deg,#111,#2b2b2b);box-shadow:0 6px 18px #0002}.primary:hover:not(:disabled){background:var(--gold)}
+.challenge-card{box-shadow:12px 12px 0 #e6e6df}.stage{transition:.2s;background:#fff}.stage:hover{border-color:var(--gold);transform:translateY(-3px)}
+.stage:nth-child(n+4):not(:last-child)::after{content:"HARD";font:6px var(--mono);color:#b3261e;letter-spacing:1px}
+.stage:last-child::after{content:"HARD+";font:6px var(--mono);color:var(--gold2)}
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;padding:45px 0 10px}.features>div{border:1px solid var(--line);background:#fff;padding:22px;transition:.2s}.features>div:hover{border-color:var(--gold);transform:translateY(-4px)}
+.features b{font:11px var(--pixel);color:var(--gold)}.features h3{margin:16px 0 8px;font-size:18px;letter-spacing:-.5px}.features p{margin:0;font-size:12px;line-height:1.6;color:#777}
+.board{margin-top:30px;background:#111;color:#fff;padding:28px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.board small{font:8px var(--mono);letter-spacing:1px;color:var(--gold2)}.board strong{display:block;font-size:22px;margin:8px 0 4px;letter-spacing:-1px}.board p{margin:0;font-size:12px;color:#aaa}
+.board .chips{display:flex;gap:6px;flex-wrap:wrap}.chips span{border:1px solid #555;padding:8px 11px;font:9px var(--mono)}
+@media(max-width:700px){.nav{display:none}.features{grid-template-columns:1fr}}
+/* FULL-SCREEN QUIZ */
+#quizOverlay{padding:0;background:#07070b;backdrop-filter:none;place-items:stretch;z-index:20}
+#quizOverlay .quiz-panel{width:100%;max-width:none;height:100%;max-height:none;border:0;box-shadow:none;color:#f4f1ea;padding:22px max(5vw,16px);background:radial-gradient(ellipse at 50% -10%,#221c3a,#07070b 62%);display:flex;flex-direction:column;justify-content:flex-start}
+#quizOverlay .quiz-panel>*{width:min(820px,100%);margin-left:auto;margin-right:auto}
+#quizOverlay h2{color:#fff;font-size:clamp(24px,4vw,42px)}#quizOverlay .close{color:#fff}
+#quizOverlay .quiz-brand span,#quizOverlay .player-line,#quizOverlay .quiz-meta,#quizOverlay .quiz-actions>span,#quizOverlay .question-sub,#quizOverlay .eyebrow,#quizOverlay .topic-tag{color:#9b97ad}
+#quizOverlay .eyebrow>span{background:var(--gold2)}#quizOverlay .progress{background:#26243a}#quizOverlay .progress span{background:linear-gradient(90deg,var(--gold),var(--gold2))}
+#quizOverlay .option{background:#13121e;border-color:#2c2a40;color:#f4f1ea;padding:16px;font-size:15px;transition:.15s}#quizOverlay .option:hover:not(:disabled){border-color:var(--gold2);transform:translateX(4px)}
+#quizOverlay .option.selected{background:var(--gold2);color:#111;border-color:var(--gold2)}#quizOverlay .option.correct{background:#0f3d2a;border-color:#35c47c;color:#fff}#quizOverlay .option.wrong{background:#3d1520;border-color:#d9455f;color:#f3c6cd}
+#quizOverlay .key{color:inherit;opacity:.6}#quizOverlay .explanation{background:#17162a;color:#c5c1d6}
+#quizOverlay .primary{background:var(--gold2);color:#111}#quizOverlay .result{margin:auto}#quizOverlay .result>p:not(.eyebrow){color:#aaa}#quizOverlay .result-icon{border-color:var(--gold2);color:var(--gold2)}#quizOverlay .result-xp strong{color:var(--gold2)}
+.timebar{height:4px;background:#26243a;margin-bottom:6px!important}.timebar i{display:block;height:100%;width:100%;background:#e5484d}
+.topic-tag.hard{color:#ff7b7b!important}#timer{color:#ff7b7b}
+/* MOVIE CREDITS */
+.credits{background:#000;padding:0;overflow:hidden}.credits:before{content:"";position:absolute;inset:0;background:radial-gradient(1px 1px at 20% 30%,#fff8,transparent),radial-gradient(1px 1px at 70% 60%,#fff6,transparent),radial-gradient(1.5px 1.5px at 40% 80%,#fff5,transparent),radial-gradient(1px 1px at 85% 15%,#fff7,transparent),radial-gradient(ellipse at 50% 50%,#2a1f0a55,#000 70%);background-size:300px 300px,400px 400px,250px 250px,350px 350px,100% 100%}
+.credits:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(#000 0,transparent 22%,transparent 78%,#000 100%)}
+.roll{position:relative;text-align:center;padding-top:100vh;animation:roll 42s linear forwards}
+@keyframes roll{to{transform:translateY(calc(-100% + 100vh))}}
+.roll .cr{margin:0 auto 14vh;width:min(720px,90%)}.cr small{display:block;font:10px var(--mono);letter-spacing:5px;color:var(--gold2);margin-bottom:16px}
+.cr strong{display:block;font-size:clamp(24px,5vw,46px);font-weight:600;letter-spacing:4px;color:#f5efe0;text-shadow:0 0 28px #e6c26055}
+.cr em{display:block;font:11px var(--mono);letter-spacing:3px;color:#8c8678;font-style:normal;margin-top:12px}
+.cr.title h2{font-size:clamp(46px,11vw,120px);letter-spacing:-4px;line-height:.9;margin:0;background:linear-gradient(#fff6d8,#b8892b);-webkit-background-clip:text;color:transparent;-webkit-text-stroke:0;animation:none}
+.cr.end{min-height:100vh;margin:0 auto;display:flex;flex-direction:column;justify-content:center;align-items:center;width:100%}.cr.end h3{font:clamp(18px,4vw,30px) var(--pixel);color:var(--gold2);letter-spacing:6px;margin:0 0 30px}
+.cbtn{background:var(--gold2);color:#111;border:0;padding:15px 22px;font:700 10px var(--mono);letter-spacing:2px;position:relative;z-index:3}
+.skip{position:fixed;top:18px;right:18px;z-index:5;background:#0008;color:#ccc;border:1px solid #555;padding:10px 14px;font:9px var(--mono);letter-spacing:1px}
+@media(prefers-reduced-motion:reduce){.roll{animation:none;padding-top:8vh}.credits{overflow-y:auto}}
+/* FONT: Game Paused (letters only; digits/symbols fall back to the pixel font) */
+@font-face{font-family:'Game Paused';src:url('GamePaused.otf') format('opentype');font-display:swap}
+:root{--game:'Game Paused','Press Start 2P',monospace}
+.hero h1,.section-head h2,.profile-panel h2,.brand,.features h3,.board strong,.cr strong,.cr.title h2,.result h2,.credits h2{font-family:var(--game);font-weight:400;letter-spacing:0}
+.hero h1{font-size:clamp(50px,7.5vw,88px);line-height:1}.section-head h2{font-size:42px}.features h3{font-size:22px}.brand{font-size:22px}
+.primary,.cbtn,.skip,.topic-tag{font-family:var(--game);font-size:14px;letter-spacing:1px}.topic-tag{font-size:15px}
+.stage small{font-family:var(--game);font-size:10px;letter-spacing:0}.cr strong{letter-spacing:3px}
+/* HEARTS */
+.hearts{display:flex;gap:8px}.hearts span{position:relative;font-size:28px;line-height:1;color:#ff3b5c;text-shadow:0 0 14px #ff3b5c99;display:inline-block}
+.hearts span.gone{color:#34303f;text-shadow:none}.hearts span.lose{animation:hl 1.1s forwards}
+.hearts span.lose:after{content:"−1";position:absolute;left:50%;top:100%;transform:translateX(-50%);font:700 11px var(--mono);color:#ff8fa3;animation:fl 1.1s forwards}
+@keyframes hl{0%{transform:scale(1)}15%{transform:scale(1.8) rotate(-10deg);color:#fff}35%{transform:scale(1.4) rotate(10deg) translateX(-4px);color:#ff3b5c}55%{transform:scale(1.5) rotate(-6deg) translateX(4px)}100%{transform:scale(.85) translateY(16px) rotate(24deg);color:#34303f;text-shadow:none;opacity:.5}}
+@keyframes fl{from{opacity:1;top:100%}to{opacity:0;top:260%}}
+#quizOverlay.hit .quiz-panel{animation:shake .5s}#quizOverlay.hit:after{content:"";position:fixed;inset:0;pointer-events:none;box-shadow:inset 0 0 140px 40px #ff1744bb;animation:flash .8s forwards;z-index:3}
+@keyframes shake{20%{transform:translateX(-12px)}40%{transform:translateX(10px)}60%{transform:translateX(-7px)}80%{transform:translateX(4px)}}@keyframes flash{to{opacity:0}}
+/* TROLL */
+.troll{width:120px;height:120px;display:block;margin:0 auto 14px;animation:wob 1.3s ease-in-out infinite}@keyframes wob{50%{transform:rotate(-7deg) scale(1.07)}}
+.troll-pop{animation:pop .5s}@keyframes pop{from{transform:scale(.6);opacity:0}}

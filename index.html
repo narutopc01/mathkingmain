@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#08060a">
+<title>mathking — The Maths Challenge</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&family=Press+Start+2P&family=Pixelify+Sans:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css"><link rel="stylesheet" href="premium.css"><link rel="stylesheet" href="fx.css"><link rel="stylesheet" href="theme.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#"><span class="brand-mark">MK</span><span>mathking<span class="dot">.</span></span></a>
+  <div class="top-meta"><i></i> MATH CHALLENGE <b>/</b> 8 STAGES</div>
+  <nav class="nav"><a href="#challenge">CHALLENGE</a><a href="escape.html">ESCAPE ROOM</a><a href="#why">WHY MATHKING</a><a href="#board">TN BOARD</a></nav><span class="version">V 4.0</span>
+</header>
+<main class="wrap">
+  <section class="hero">
+    <div class="hero-copy">
+      <p class="eyebrow"><span></span> THE SCHOOL MATHEMATICS CHALLENGE</p>
+      <h1>One quiz.<br><em>Eight stages.</em></h1>
+      <p class="intro">From classroom basics to brain-bending problems. Pick your details, then prove what you know.</p>
+      <button class="primary" id="beginBtn">ENTER THE CHALLENGE <b>↗</b></button> <a class="primary ghost" href="escape.html">ESCAPE ROOM <b>↗</b></a>
+    </div>
+    <div class="hero-art">
+      <span class="art-note">MATHKING / 2026</span>
+      <div class="pixel-window">
+        <div class="window-top"><i></i><i></i><i></i><label>mathking.exe</label></div>
+        <div class="pixel-face"><b></b><b></b><i></i></div>
+        <p>READY PLAYER_01</p>
+      </div>
+      <span class="float f1">+</span><span class="float f2">÷</span><span class="float f3">?</span>
+      <span class="art-bottom">THINK × SOLVE × ADVANCE</span>
+    </div>
+  </section>
+
+  <section class="challenge" id="challenge">
+    <div class="section-head">
+      <div><p class="eyebrow"><span></span> THE MAIN EVENT</p><h2>Your challenge<span>.</span></h2></div>
+      <span class="section-index">01 / 01</span>
+    </div>
+    <div class="challenge-card">
+      <div class="challenge-top"><span>THE MATHKING RUN</span><span>8 STAGES · ONE JOURNEY</span></div>
+      <div class="stage-track" id="stageTrack">
+        <div class="stage"><b>01</b><small>WARM UP</small></div><div class="stage"><b>02</b><small>NUMBER SENSE</small></div>
+        <div class="stage"><b>03</b><small>OPERATIONS</small></div><div class="stage"><b>04</b><small>CONCEPTS</small></div>
+        <div class="stage"><b>05</b><small>GEOMETRY</small></div><div class="stage"><b>06</b><small>ALGEBRA</small></div>
+        <div class="stage"><b>07</b><small>BRAIN TEASER</small></div><div class="stage"><b>08</b><small>FINAL BOSS</small></div>
+      </div>
+      <p class="challenge-copy">Every stage has 3 questions, you have 3 hearts, and trolls wait in between. Stages 1–3 ease you in. From Stage 4 the quiz turns hard: tougher questions, a 45-second timer and bonus XP. Finish all eight stages and a secret stage is waiting. The quiz opens full screen.</p>
+      <button class="primary" id="startQuiz">START 8-STAGE QUIZ <b>↗</b></button>
+    </div>
+    <div class="challenge-card escape-card"><div class="challenge-top"><span>MATHKING ESCAPE ROOM</span><span>5 LOCKS · 12 MINUTES</span></div><p class="challenge-copy">New: a puzzle room. Crack five locks (fruit equations, number ladder, magic square, Make 24 and the final vault), collect the digits and escape before the clock runs out. Medium difficulty, with hints that cost 20 seconds.</p><a class="primary" href="escape.html">START ESCAPE ROOM <b>↗</b></a></div>
+    <div class="syllabus-note"><span class="syllabus-symbol">∑</span><div><small>SYLLABUS RANGE</small><strong>Classes 2–12 · Age-appropriate mathematics</strong><p>Topics adapt to the standard you select before starting.</p></div></div>
+  </section>
+
+  <section class="features" id="why"><div><b>01</b><h3>Full-screen focus</h3><p>The quiz takes over your whole screen. No distractions, just you and the problem.</p></div><div><b>02</b><h3>Gets harder at Stage 4</h3><p>Warm up gently, then face tougher questions against a ticking clock.</p></div><div><b>03</b><h3>Fresh questions</h3><p>Every run mixes questions from a growing bank, so no two runs feel the same.</p></div></section>
+<section class="board" id="board"><div><small>TAMIL NADU STATE BOARD</small><strong>Classes 6 – 12</strong><p>Questions aligned to the Samacheer Kalvi mathematics syllabus.</p></div><div class="chips"><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span></div></section>
+<section class="stats">
+    <div><small>TOTAL XP</small><strong id="xp">0000</strong></div><div><small>QUIZ RUNS</small><strong id="runs">00</strong></div><div><small>BEST SCORE</small><strong id="best">00/24</strong></div><div><small>PLAYER RANK</small><strong class="rank" id="rank">BEGINNER</strong></div>
+  </section>
+  <footer><span>© 2026 MATHKING</span><span>BUILT FOR CURIOUS MINDS ✳</span><span>V 4.0.0</span></footer>
+</main>
+
+<div class="overlay hidden" id="profileOverlay" role="dialog" aria-modal="true" aria-labelledby="profileTitle">
+ <form class="profile-panel" id="profileForm">
+  <div class="modal-top"><span class="mono">PLAYER REGISTRATION / 01</span><button type="button" class="close" id="closeProfile">×</button></div>
+  <p class="eyebrow"><span></span> BEFORE YOU BEGIN</p><h2 id="profileTitle">Who's playing<span>?</span></h2>
+  <p class="sub">Enter your details to personalise your eight-stage challenge.</p>
+  <label>YOUR NAME<input id="playerName" name="playerName" placeholder="Enter your name" maxlength="32" required></label>
+  <div class="form-grid">
+   <label>STANDARD<select id="standard" required><option value="">Select class</option></select></label>
+   <label>SECTION<input id="section" name="section" placeholder="e.g. A, B, C" maxlength="8" required></label>
+  </div>
+  <div class="profile-foot"><span>YOUR DETAILS STAY ON THIS DEVICE</span><button class="primary" type="submit">CONTINUE <b>↗</b></button></div>
+ </form>
+</div>
+
+<div class="overlay hidden" id="quizOverlay" role="dialog" aria-modal="true" aria-labelledby="question">
+ <div class="quiz-panel">
+  <div class="quiz-head"><div class="quiz-brand">mathking <span>/ PLAYER CHALLENGE</span></div><div class="hearts" id="hearts" aria-label="Hearts"></div><button class="close" id="closeQuiz" aria-label="Close">×</button></div>
+  <div class="player-line"><span id="playerLabel">PLAYER</span><span id="standardLabel">CLASS — SECTION —</span></div>
+  <div class="progress"><span id="progress"></span></div><div class="timebar hidden" id="timebar"><i></i></div>
+  <div class="quiz-meta"><span id="stageLabel">STAGE 01 / 08</span><span id="questionNumber">QUESTION 01 / 01</span><span id="timer"></span></div>
+  <div id="questionView"><p class="topic-tag" id="topicTag">WARM UP</p><h2 id="question">Question</h2><p class="question-sub">Choose one answer.</p><div class="options" id="options"></div><div class="quiz-actions"><span id="quizMessage">SELECT YOUR ANSWER</span><button class="primary" id="submit" disabled>SUBMIT ANSWER <b>↗</b></button></div></div>
+  <div class="result hidden" id="stageResult"><svg class="troll" viewBox="0 0 100 100" aria-hidden="true"><ellipse cx="9" cy="52" rx="8" ry="12" fill="#5aa84a"/><ellipse cx="91" cy="52" rx="8" ry="12" fill="#5aa84a"/><circle cx="50" cy="55" r="40" fill="#6bbf59"/><path d="M38 17q4-12 12-4q8-8 12 4" fill="#e2792b"/><path d="M25 38l20 6M75 38l-20 6" stroke="#1b2b17" stroke-width="5" stroke-linecap="round"/><circle cx="36" cy="50" r="9" fill="#fff"/><circle cx="64" cy="50" r="9" fill="#fff"/><circle cx="38" cy="52" r="4" fill="#111"/><circle cx="62" cy="52" r="4" fill="#111"/><path d="M24 68q26 30 52 0q-26 8-52 0z" fill="#1b2b17"/><path d="M34 71h6v5h-6zM46 73h8v6h-8zM60 71h6v5h-6z" fill="#fff"/></svg><p class="eyebrow centered">CAT REVIEW</p><h2 id="stageResultTitle">Good work.</h2><p id="stageResultText"></p><button class="primary" id="nextStage">CONTINUE <b>↗</b></button></div>
+  <div class="hidden" id="secretView">
+   <p class="eyebrow centered"><span></span> SECRET STAGE ??? <span></span></p>
+   <div class="secret-timer"><div class="timebar"><i id="sbar"></i></div><b id="ssecs">20</b></div>
+   <div class="secret-q">Evaluate &int;&#8320;^&infin; (x&sup2; &middot; e&#739; &middot; sin x) &divide; (1 + cos&#8309;x) dx and prove your answer using Class 12 methods.</div>
+   <div class="options">
+    <button type="button" class="option"><span class="key">A</span><span>&pi;&sup2;/7</span></button>
+    <button type="button" class="option"><span class="key">B</span><span>e<sup>&pi;</sup> &minus; 1</span></button>
+    <button type="button" class="option"><span class="key">C</span><span>0</span></button>
+    <button type="button" class="option"><span class="key">D</span><span>None of these</span></button>
+   </div>
+   <div id="smsg"></div>
+   <div class="psst" id="psst">Psst&hellip; do not click anything. Just wait for the timer. &#129323;</div>
+  </div>
+  <div class="result hidden" id="finalResult"><div class="result-icon" id="finalIcon">★</div><p class="eyebrow centered" id="finalEyebrow">ALL EIGHT STAGES COMPLETE</p><h2 id="finalTitle">Challenge complete.</h2><p id="finalText"></p><div class="result-xp"><small>XP EARNED</small><strong id="earnedXP">+000</strong></div><button class="primary hidden" id="retry">TRY AGAIN <b>↗</b></button> <button class="primary" id="showCredits">VIEW CREDITS <b>↗</b></button></div>
+ </div>
+</div>
+
+<div class="stage-card hidden" id="stageCard" aria-live="polite"><div><div class="scn" id="scNum"></div><h2 id="scName"></h2><div class="sct" id="scTag"></div></div></div>
+
+<div class="team-intro hidden" id="teamIntro"><div class="ti-glow"></div><div><div class="ti-presents">PRESENTED BY</div><h1 id="tiTeam">TEAM 7</h1><div class="ti-sub">MATHKING / THE MATHS CHALLENGE</div></div><button type="button" class="skip" id="tiSkip">SKIP INTRO</button></div>
+
+<div class="cat-meme-toast hidden" id="catMemeToast" aria-live="polite"><div class="cat-meme-art" id="catMemeArt"></div>
+<div class="cat-meme-copy"><small id="catMemeTag">CAT REACTION</small><strong id="catMemeCaption">The cat is judging.</strong></div><span class="cat-meme-close">×</span></div>
+
+<div class="heart-meme-overlay hidden" id="heartMemeOverlay" aria-hidden="true">
+ <video id="heartMemeVideo" playsinline preload="auto">
+  <source src="assets/cat-laughing.mp4" type="video/mp4">
+ </video>
+ <div class="heart-meme-caption" id="heartMemeCaption">ANOTHER HEART DOWN. THE CAT IS HOWLING.</div>
+</div>
+
+<div class="faaah hidden" id="faaah"><div><div id="faaahFace"></div><p>FAAAH!</p><small>THE CORRECT ANSWER WAS PATIENCE</small></div></div>
+
+<div class="credits hidden" id="credits">
+ <button class="skip goHome">SKIP ✕</button>
+ <div class="roll">
+  <div class="cr title"><small>A MATHKING PRODUCTION</small><h2>THE<br>MATHKING<br>RUN</h2></div>
+  <div class="cr"><small>CREATED &amp; PLANNED BY</small><strong>VIMALKUMAR</strong><em>XI "B"</em></div>
+  <div class="cr"><small>SUPPORTED BY</small><strong>ARIHARAN J</strong></div>
+  <div class="cr"><small>PRESENTED &amp; FUNDED BY</small><strong>TEAM 7</strong></div>
+  <div class="cr"><small>CURRICULUM</small><strong>TAMIL NADU STATE BOARD</strong><em>CLASSES 6 – 12</em></div>
+  <div class="cr"><small>STARRING</small><strong>EVERY STUDENT WHO DARED TO PLAY</strong></div>
+  <div class="cr"><small>NO NUMBERS WERE HARMED</small><em>MATHKING © 2026</em></div>
+  <div class="cr end"><h3>THE END</h3><button class="cbtn goHome" id="creditsHome">RETURN TO MATHKING ↗</button></div>
+ </div>
+</div>
+<script src="sfx.js"></script><script src="fx.js"></script><script src="questions.js"></script><script src="questions2.js"></script><script src="script.js"></script>
+</body></html>
